@@ -1,0 +1,104 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="ProjectSample.MasterPage" %>
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+       
+    </asp:ContentPlaceHolder>
+    <link href="Style/Style.css" rel="stylesheet" />
+         
+    </head>
+<body>
+   
+    <form id="form1" runat="server">
+    <div id="PageWrapper">
+    <table style="width: 100%; text-align: center;">
+        <tr>
+            <td>
+                <div id="Header"> </div></td>
+            <td>
+                <h1>My Web Application
+        </h1>
+             
+            </td>
+            <td>
+                <asp:ImageButton ID="btnLogin" runat="server" Height="24px" ImageUrl="~/Images/login.png" OnClick="btnLogin_Click" Width="23px" ToolTip="Login" />
+           <asp:ImageButton ID="btnLogOut" runat="server" ImageUrl="~/Images/Logout.png" Width="23px" Visible="False" OnClick="btnLogOut_Click" ToolTip="Logout" />
+                <asp:ImageButton ID="btnGuest" runat="server" Height="23px" ImageUrl="~/Images/guest.png" Width="27px" ToolTip="Guest" />
+                <br />
+      <asp:Label ID="lblUser" runat="server" CssClass="Labeltxt"></asp:Label>
+       
+            </td>
+        </tr>
+        </table>
+    
+    <div id="MenuBar">
+        <ul>
+            <li><a href="#">Home</a>
+                <ul>
+                    <li><a href="Home.aspx">About Us</a></li>
+                    <li><a href="Amenities.aspx">Amenities</a></li>
+                    <li><a href="#">Location</a></li>
+                </ul>
+            </li>
+            <li><a href="#">LogIn</a>
+                <ul>
+                    <li><a href="LogIn.aspx">LogIn</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Members</a> 
+                <ul>
+                    <li><a href="Registration.aspx">Registration</a></li>
+                    <li><a href="Profile.aspx">Profile</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Classifieds</a>
+                <ul>
+                    <li><a href="Amenities.aspx">Classifieds</a></li>
+                </ul>
+            </li>
+               <li><a href="#">Services</a>
+                <ul>
+                    <li><a href="#">Services</a></li>
+
+                </ul>
+            </li>
+               <li><a href="#">Guest</a>
+                <ul>
+                    <li><a href="#">Login</a></li>
+
+                </ul>
+            </li>
+           
+            <li>
+                
+            </li>
+        </ul>
+       
+    <div id="MainContent">
+        <asp:ContentPlaceHolder ID="cpMainContent" runat="server">
+        </asp:ContentPlaceHolder>
+       
+    </div> 
+
+    </div>
+    <div id="Sidebar">Side Bar</div>
+    <div id="Footer"><table>
+        <tr>
+            <td colspan="2">All Rights Reserved*</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        </table>
+        </div>
+    
+    </div>
+        </form>
+</body>
+</html>

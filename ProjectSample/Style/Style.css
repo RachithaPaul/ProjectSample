@@ -1,0 +1,218 @@
+﻿/*html
+{ height: 100%;}
+
+*
+{ margin: 0 0 0 0px;
+  padding: 0;
+}*/
+body,html
+{ font: normal .80em 'trebuchet ms' , arial, sans-serif;
+    background: url('../Images/IMG_0390.JPG') fixed;
+    background-repeat: no-repeat;
+    text-align:center;
+    margin:0px;
+    padding:0px;
+}
+h1
+{
+    font-family: 'Courier New';
+    font-size: x-large;
+    font-weight: normal;
+    font-style: italic;
+    text-transform: capitalize;
+    color: #6600CC;
+    padding: 8px;
+    margin: 6px;
+}
+
+#PageWrapper
+{
+  width: 100em;
+  margin-left:auto;
+  margin-right:auto;
+}
+#Header
+{
+    
+    margin-left:auto;
+    margin-right:auto;
+    
+}
+
+#MainContent
+{
+    width:65em;
+    margin:.5em;
+    border-width: thin;
+    border-color: #000000;
+    float: left;
+    background-color: #DFECEB;
+    border-style:solid;
+}
+#MenuBar
+{
+  font-family: 'Courier New' , Courier, monospace;
+  font-size: 14px;
+}
+#MenuBar ul {
+ 
+  margin-left:.5em;
+   padding: 0;
+  list-style: none;
+}
+#MenuBar ul li {
+  display: block;
+  position: relative;
+  float: left;
+}
+  
+#MenuBar li ul 
+{ display: none; 
+
+}
+
+#MenuBar ul li a{
+  display: block;
+  text-decoration: none;
+  color: #ffffff;
+  border-top: 1px solid #ffffff;
+  padding: 5px 15px 5px 15px;
+  background: #2C5463;
+  margin-left: 1px;
+  white-space: nowrap;
+}
+#MenuBar ul li a:hover { background: #617F8A; }
+
+#MenuBar li:hover ul {
+  display: block;
+  position: absolute;
+}
+#MenuBar li:hover li {
+  float: none;
+  font-size: 11px;
+}
+#MenuBar li:hover a 
+{ 
+    background: #617F8A; 
+}
+#MenuBar li:hover li a:hover 
+{ 
+    background: #95A9B1; 
+}
+
+#Sidebar {
+   position:absolute;
+    margin-left:90em;
+    margin-top:5em;
+    border-width: thin;
+    border-color: #000000;
+    background-color: #CCE3F7;
+    width: 20em;
+    float: right;
+   border-style:solid;
+}
+#Footer
+{ 
+    width:87em;
+    margin:.3em;
+    border-width: thin;
+    border-color: #000000;
+    float: left;
+    background-color: #DFECEB;
+    border-style:solid;
+   
+}
+#divId
+{
+    border-left-style: solid;
+    border-color: #000000;
+    border-width: thin;
+}
+
+.Label {
+    font-size: 10pt;
+    font-weight: normal;
+    font-style: normal;
+       color: #9900CC;
+    font-family: Cambria;
+}
+.LabelHeadings {
+    font-family: 'Century Gothic';
+    font-size: 14pt;
+    font-weight: normal;
+    font-style: italic;
+    text-transform: capitalize;
+    color: #FF9900;
+}
+.Labeltxt {
+    font-family: Cambria;
+    font-size: 16px;
+    color: #000080;
+    text-transform: capitalize;
+}
+
+
+.TextBox
+{
+    font-family: 'Times New Roman' , Times, serif;
+    font-size: 12px;
+    background-color: #CCCCFF;
+}
+/*Button design*/
+.button
+{
+    border-color: #0099CC;
+    border-style: ridge;
+    font-family: 'Courier New' , Courier, monospace;
+    font-size: 14px;
+    font-style: italic;
+    text-transform: uppercase;
+    background-color: #B3D9FF;
+    color: #000080;
+    font-weight: bolder;
+}
+.popupControl{
+	background-color:White;
+	position:absolute;
+	visibility:hidden;
+}
+.message
+{
+    font-style: italic;
+    font-size: 14px;
+    font-family: 'Courier New' , Courier, monospace;
+    color: #000080
+}
+.modalBackground
+    {
+        background-color: Black;
+        filter: alpha(opacity=90);
+        opacity: 0.8;
+    }
+.modalPopup
+    {
+        background-color: #FFFFFF;
+        border-width: 3px;
+        border-style: solid;
+        border-color: black;
+        padding-top: 10px;
+        padding-left: 10px;
+        width: 300px;
+        height: 140px;
+    }
+.RequiredFieldValidator {
+    font-family: Cambria;
+    font-size: 12px;
+    color: #FF0066;
+}
+
+#divId {
+    width:100%;
+    height:100%;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url('../Images/login12.gif');
+}

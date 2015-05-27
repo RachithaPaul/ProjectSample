@@ -1,0 +1,7 @@
+C:\DataFolderRachitha\ASP.NET\ProjectSample\BusinessLayer\bin\Debug\BusinessLayer.dll
+C:\DataFolderRachitha\ASP.NET\ProjectSample\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\DataFolderRachitha\ASP.NET\ProjectSample\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+C:\DataFolderRachitha\ASP.NET\ProjectSample\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\DataFolderRachitha\ASP.NET\ProjectSample\BusinessLayer\obj\Debug\BusinessLayer.pdb
+C:\DataFolderRachitha\ASP.NET\ProjectSample\BusinessLayer\bin\Debug\DataAccessLayer.dll
+C:\DataFolderRachitha\ASP.NET\ProjectSample\BusinessLayer\bin\Debug\DataAccessLayer.pdb
