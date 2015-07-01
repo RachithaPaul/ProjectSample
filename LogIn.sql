@@ -14,5 +14,3 @@ ALTER PROCEDURE Adm.LoginCheck
 		END
 
 
-EXEC Adm.LoginCheck @userName='rachitha',
-				@password='fg'
