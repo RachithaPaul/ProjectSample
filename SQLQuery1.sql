@@ -191,23 +191,9 @@ ALTER PROCEDURE Adm.LoginCheck
 		END
 
 
-EXEC Adm.LoginCheck @userName='rachitha',
-				@password='fg'
 
-EXEC Adm.test--procInsertUpdateRegistrationandService 
-									 @userName='Thomas4',
-									@firstName='Rachitha',
-									--@MI=NULL,
-									@lastName='Paul',
-									@address='3131 wingle',
-									@city='tampa',
-									@state='FL',
-									@zipCode=657665,
-									@phoneNo=8133734544,
-									--@alternatePhoneNo AS INT=NULL,
-									@email='Joseph@gmail.com',
-									@password='rachitha1',
-									@Action=1;
+
+
 create proc adm.test @userName AS NVARCHAR(50),
 									@firstName AS NVARCHAR(50),
 									@MI NVARCHAR(50)=NULL,
@@ -250,11 +236,4 @@ INSERT INTO Adm.Registration
 									@email,
 									@password)
 						end		
-
-select * from Adm.ServiceMain
-
-
-
-SELECT * FROM Adm.Registration --where userName='thomas'
-SELECT * FROM Adm.ServiceOrBusiness
 
