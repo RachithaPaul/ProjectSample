@@ -97,19 +97,3 @@ ALTER PROCEDURE Adm.procInsertUpdateRegistrationandService
 								END
 			END
 
-EXEC Adm.procInsertUpdateRegistrationandService 
-									 @userName='Thomas4',
-									@firstName='Rachitha',
-									@MI='PUTHUMANA',
-									@lastName='Paul',
-									@address='3131 wingle',
-									@city='tampa',
-									@state='FL',
-									@zipCode=657665,
-									@phoneNo=8133734544,
-									--@alternatePhoneNo AS INT=NULL,
-									@email='Joseph@gmail.com',
-									@password='rachitha1',
-									@Action=2;
-
-SELECT * FROM  Adm.Registration WHERE userName='Thomas4';
