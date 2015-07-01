@@ -15,5 +15,3 @@ Alter PROC Adm.SelectProfile
 		ELSE
 		SELECT 'False';
 	END
-
-exec Adm.SelectProfile 'thomas'
