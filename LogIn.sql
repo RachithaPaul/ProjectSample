@@ -6,7 +6,7 @@ ALTER PROCEDURE Adm.LoginCheck
 		BEGIN
 		IF EXISTS
 		
-			(SELECT *
+			(SELECT *--R.userName,R.Password 
 				FROM Adm.Registration AS R
 					 WHERE R.userName=@userName AND R.Password=@password COLLATE SQL_Latin1_General_CP1_CS_AS)
 			
@@ -17,3 +17,6 @@ ALTER PROCEDURE Adm.LoginCheck
 			
 		END
 
+
+EXEC Adm.LoginCheck @userName='rachitha',
+				@password='rachitha1'

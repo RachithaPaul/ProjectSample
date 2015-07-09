@@ -26,10 +26,13 @@ namespace BusinessLayer
       string email=string.Empty;
       string password=string.Empty;
       Int32 userId;
-
+      int hidePhone;
+      int hideEmail;
+      int serviceID;
       //data table for inserting into service table
 
       private DataTable dtServiceOrBusiness;
+      private DataTable dtServiceOrBusinessUpdate;
 
       #region properties
 
@@ -103,12 +106,34 @@ namespace BusinessLayer
           get { return this.userId; }
           set { this.userId = value; }
       }
+      public int _hidePhone
+      {
+          get { return this.hidePhone; }
+          set { this.hidePhone = value; }
+      }
+      public int _hideEmail
+      {
+          get { return this.hideEmail; }
+          set { this.hideEmail = value; }
+
+      }
+       public DataTable _dtServiceOrBusinessUpdate
+      {
+          get { return this.dtServiceOrBusinessUpdate; }
+          set { this.dtServiceOrBusinessUpdate = value; }
+      }
+       public int _serviceID
+       {
+           get { return this.serviceID; }
+           set { this.serviceID = value; }
+       }
+      
     #endregion
       #region Methods
       
       public int insertregistrationandServices(byte Action)
       {
-          SqlParameter[] sqlParam = new SqlParameter[15];
+          SqlParameter[] sqlParam = new SqlParameter[18];
           sqlParam[0] = new SqlParameter("@userName",_userName);
           sqlParam[1]=new SqlParameter("@firstName",_firstName);
           sqlParam[2]=new SqlParameter("@MI",_MI);
@@ -121,16 +146,28 @@ namespace BusinessLayer
           sqlParam[9]=new SqlParameter("@alternatePhoneNo",_alternatePhoneNO);
           sqlParam[10]=new SqlParameter("@email",_email);
           sqlParam[11]=new SqlParameter("@password",_password);
-          sqlParam[12] = new SqlParameter("@dtServiceOrBusiness",_dtServiceOrBusiness);
+          sqlParam[12] = new SqlParameter("@dtServiceOrBusiness", _dtServiceOrBusiness);
+          sqlParam[13] = new SqlParameter("@userId",_userId);
+          sqlParam[14] = new SqlParameter("@HidePhone", _hidePhone);
+          sqlParam[15] = new SqlParameter("@HideEmail", _hideEmail);
+          sqlParam[16] = new SqlParameter("@dtServiceOrBusinessUpdate", _dtServiceOrBusinessUpdate);
           if (Action == 1)
           {
-              sqlParam[13] = new SqlParameter("@Action", DABasic.Action.insert);
+              sqlParam[17] = new SqlParameter("@Action", DABasic.Action.insert);
           }
           else if (Action == 2)
           {
-              sqlParam[13] = new SqlParameter("@Action", DABasic.Action.update);
+              sqlParam[17] = new SqlParameter("@Action", DABasic.Action.update);
           }
           return daCommon.insertUpdateDelete("Adm.procInsertUpdateRegistrationandService", sqlParam);
+      }
+
+      public int DeleteServiceBusiness()
+      {
+          SqlParameter[] sqlParam = new SqlParameter[1];
+          sqlParam[0] = new SqlParameter("@serviceId",_serviceID);
+
+          return daCommon.insertUpdateDelete("Adm.procDeleteServiceBusiness", sqlParam);
       }
       public string checkUsernameExists()
       {

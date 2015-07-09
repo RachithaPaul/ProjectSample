@@ -3,6 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
        
+        .auto-style1 {
+        height: 21px;
+    }
+       
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cpMainContent" runat="server">
@@ -53,10 +57,10 @@
             <td class="auto-style2"></td>
         </tr>
         <tr>
-            <td class="auto-style5">
-                <asp:Label ID="Label7" runat="server" CssClass="message" Text="Register if you don't have an account"></asp:Label>
+            <td class="auto-style1">
+                <asp:Label ID="Label7" runat="server" CssClass="message" Text="Register if you own a Home"></asp:Label>
             </td>
-            <td class="auto-style6">
+            <td class="auto-style1">
                 <asp:LinkButton ID="lnkRegister" runat="server" OnClick="lnkRegister_Click">Register</asp:LinkButton>
             </td>
         </tr>

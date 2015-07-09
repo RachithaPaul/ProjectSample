@@ -4,7 +4,10 @@
     .auto-style1 {
         height: 21px;
     }
-</style>
+        .auto-style2 {
+            height: 19px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cpMainContent" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true">
@@ -68,7 +71,7 @@
                                 <asp:Label ID="Label1" runat="server" CssClass="Label" Text="User Name *"></asp:Label>
                             </td>
                             <td style="text-align: left">
-                                <asp:TextBox ID="txtUserName" runat="server" BackColor="#DFECEB" BorderColor="#E6E2E9" BorderStyle="Solid" onblur="ShowAvailability()" onkeyup="OnChange()" TabIndex="1" Enabled="False" ValidationGroup="Save"></asp:TextBox>
+                                <asp:TextBox ID="txtUserName" runat="server" BackColor="#DFECEB" BorderColor="#E6E2E9" BorderStyle="Solid" onblur="ShowAvailability()" onkeyup="OnChange()" TabIndex="1" Enabled="False" ValidationGroup="Save" Width="140px"></asp:TextBox>
                                 <asp:ImageButton ID="btnEdit" runat="server" ImageUrl="~/Images/Edit.gif" OnClick="btnEdit_Click" style="height: 16px" ToolTip="edit personal details" />
                                 <asp:Label ID="lblUserNameExists" runat="server"></asp:Label>
                             </td>
@@ -85,41 +88,30 @@
                         </tr>
                         <tr>
                             <td class="auto-style1">
-                                <asp:Label ID="Label2" runat="server" CssClass="Label" Text="Name *"></asp:Label>
+                                <asp:Label ID="Label2" runat="server" CssClass="Label" Text="Firstname *"></asp:Label>
                             </td>
                             <td class="auto-style1">
-                                <asp:TextBox ID="txtFirstName" runat="server" BackColor="#DFECEB" BorderColor="#E6E2E9" BorderStyle="Solid" TabIndex="2" Enabled="False" ValidationGroup="Save"></asp:TextBox>
+                                <asp:TextBox ID="txtFirstName" runat="server" BackColor="#DFECEB" BorderColor="#E6E2E9" BorderStyle="Solid" TabIndex="2" Enabled="False" ValidationGroup="Save" Width="140px"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="rfvFirstName" runat="server" ControlToValidate="txtFirstName" CssClass="RequiredFieldValidator" ValidationGroup="Save">Enter Firstname</asp:RequiredFieldValidator>
                             </td>
                             <td class="auto-style1">
-                                <asp:TextBox ID="txtMInitial" runat="server" BackColor="#DFECEB" BorderColor="#E6E2E9" BorderStyle="Solid" TabIndex="3" Width="49px" Enabled="False"></asp:TextBox>
+                                <asp:Label ID="Label4" runat="server" CssClass="Label" Text="MI"></asp:Label>
+                                <asp:TextBox ID="txtMInitial" runat="server" BackColor="#DFECEB" BorderColor="#E6E2E9" BorderStyle="Solid" Enabled="False" TabIndex="3" Width="119px"></asp:TextBox>
+                                <asp:Label ID="Label3" runat="server" CssClass="Label" Text="Lastname *"></asp:Label>
                             </td>
                             <td class="auto-style1">
-                                <asp:TextBox ID="txtLastName" runat="server" BackColor="#DFECEB" BorderColor="#E6E2E9" BorderStyle="Solid" TabIndex="4" Enabled="False" ValidationGroup="Save"></asp:TextBox>
+                                <asp:TextBox ID="txtLastName" runat="server" BackColor="#DFECEB" BorderColor="#E6E2E9" BorderStyle="Solid" TabIndex="4" Enabled="False" ValidationGroup="Save" Width="140px"></asp:TextBox>
                             </td>
                             <td class="auto-style1">
                                 <asp:RequiredFieldValidator ID="rfvLastName" runat="server" ControlToValidate="txtLastName" CssClass="RequiredFieldValidator" ValidationGroup="Save">Enter Lastname</asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
-                            <td class="auto-style1"></td>
-                            <td class="auto-style1">
-                                <asp:Label ID="Label10" runat="server" CssClass="Label" Text="Firstname *"></asp:Label>
-                            </td>
-                            <td class="auto-style1">
-                                <asp:Label ID="Label4" runat="server" CssClass="Label" Text="MI"></asp:Label>
-                            </td>
-                            <td class="auto-style1">
-                                <asp:Label ID="Label3" runat="server" CssClass="Label" Text="Lastname *"></asp:Label>
-                            </td>
-                            <td class="auto-style1"></td>
-                        </tr>
-                        <tr>
                             <td class="auto-style1">
                                 <asp:Label ID="Label11" runat="server" CssClass="Label" Text="Address *"></asp:Label>
                             </td>
                             <td class="auto-style1">
-                                <asp:TextBox ID="txtAddress" runat="server" BackColor="#DFECEB" BorderColor="#E3E7E8" BorderStyle="Solid" TabIndex="5" Width="152px" Enabled="False" ValidationGroup="Save"></asp:TextBox>
+                                <asp:TextBox ID="txtAddress" runat="server" BackColor="#DFECEB" BorderColor="#E3E7E8" BorderStyle="Solid" TabIndex="5" Width="140px" Enabled="False" ValidationGroup="Save"></asp:TextBox>
                             </td>
                             <td class="auto-style1">
                                 <asp:RequiredFieldValidator ID="rfvAddress" runat="server" ControlToValidate="txtAddress" CssClass="RequiredFieldValidator" ValidationGroup="Save">Enter address</asp:RequiredFieldValidator>
@@ -132,7 +124,7 @@
                                 <asp:Label ID="Label6" runat="server" CssClass="Label" Text="City"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox ID="txtCity" runat="server" BackColor="#DFECEB" BorderColor="#E6E2E9" BorderStyle="Solid" TabIndex="6" Enabled="False" ValidationGroup="Save"></asp:TextBox>
+                                <asp:TextBox ID="txtCity" runat="server" BackColor="#DFECEB" BorderColor="#E6E2E9" BorderStyle="Solid" TabIndex="6" Enabled="False" ValidationGroup="Save" Width="140px"></asp:TextBox>
                             </td>
                             <td></td>
                             <td></td>
@@ -143,7 +135,7 @@
                                 <asp:Label ID="Label7" runat="server" CssClass="Label" Text="State"></asp:Label>
                             </td>
                             <td class="auto-style1">
-                                <asp:TextBox ID="txtState" runat="server" BackColor="#DFECEB" BorderColor="#E6E2E9" BorderStyle="Solid" TabIndex="7" Enabled="False" ValidationGroup="Save"></asp:TextBox>
+                                <asp:TextBox ID="txtState" runat="server" BackColor="#DFECEB" BorderColor="#E6E2E9" BorderStyle="Solid" TabIndex="7" Enabled="False" ValidationGroup="Save" Width="140px"></asp:TextBox>
                             </td>
                             <td class="auto-style1"></td>
                             <td class="auto-style1"></td>
@@ -154,7 +146,7 @@
                                 <asp:Label ID="Label8" runat="server" CssClass="Label" Text="Zipcode *"></asp:Label>
                             </td>
                             <td class="auto-style1">
-                                <asp:TextBox ID="txtZipcode" runat="server" BackColor="#DFECEB" BorderColor="#E6E2E9" BorderStyle="Solid" onblur="return zipAndphoneValidation(this);" TabIndex="8" Enabled="False" ValidationGroup="Save"></asp:TextBox>
+                                <asp:TextBox ID="txtZipcode" runat="server" BackColor="#DFECEB" BorderColor="#E6E2E9" BorderStyle="Solid" onblur="return zipAndphoneValidation(this);" TabIndex="8" Enabled="False" ValidationGroup="Save" Width="140px"></asp:TextBox>
                             </td>
                             <td class="auto-style1">
                                 <asp:RequiredFieldValidator ID="rfvZipcode" runat="server" ControlToValidate="txtZipcode" CssClass="RequiredFieldValidator" ValidationGroup="Save">Enter Zipcode</asp:RequiredFieldValidator>
@@ -167,7 +159,8 @@
                                 <asp:Label ID="Label9" runat="server" CssClass="Label" Text="Home/Mobile Phone No. *"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox ID="txtPhoneNO" runat="server" BackColor="#DFECEB" BorderColor="#E6E2E9" BorderStyle="Solid" onkeypress="return zipAndphoneValidation();" TabIndex="9" Enabled="False" ValidationGroup="Save"></asp:TextBox>
+                                <asp:TextBox ID="txtPhoneNO" runat="server" BackColor="#DFECEB" BorderColor="#E6E2E9" BorderStyle="Solid" onkeypress="return zipAndphoneValidation();" TabIndex="9" Enabled="False" ValidationGroup="Save" Width="140px"></asp:TextBox>
+                                <asp:CheckBox ID="chkPh" runat="server" BackColor="#DFECEB" BorderColor="#E6E2E9" Enabled="False" />
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="rfvPhone" runat="server" ControlToValidate="txtPhoneNO" CssClass="RequiredFieldValidator" ValidationGroup="Save">Enter Phone Number</asp:RequiredFieldValidator>
@@ -176,29 +169,30 @@
                             <td class="auto-style1">&nbsp;</td>
                         </tr>
                         <tr>
-                            <td class="auto-style5">
+                            <td class="auto-style1">
                                 <asp:Label ID="Label12" runat="server" CssClass="Label" Text="Alternate Phone"></asp:Label>
                             </td>
-                            <td>
-                                <asp:TextBox ID="txtAlternatePhone" runat="server" BackColor="#DFECEB" BorderColor="#E6E2E9" BorderStyle="Solid" onkeypress="return zipAndphoneValidation();" TabIndex="10" TextMode="Number" Enabled="False" ValidationGroup="Save"></asp:TextBox>
+                            <td class="auto-style1">
+                                <asp:TextBox ID="txtAlternatePhone" runat="server" BackColor="#DFECEB" BorderColor="#E6E2E9" BorderStyle="Solid" onkeypress="return zipAndphoneValidation();" TabIndex="10" TextMode="Number" Enabled="False" ValidationGroup="Save" Width="140px"></asp:TextBox>
                             </td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td class="auto-style1">&nbsp;</td>
+                            <td class="auto-style1"></td>
+                            <td class="auto-style1"></td>
+                            <td class="auto-style1"></td>
                         </tr>
                         <tr>
                             <td class="auto-style5">
                                 <asp:Label ID="Label19" runat="server" CssClass="Label" Text="Email *"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox ID="txtEmail" runat="server" BackColor="#DFECEB" BorderColor="#E6E2E9" BorderStyle="Solid" TabIndex="11" Width="138px" Enabled="False" ValidationGroup="Save"></asp:TextBox>
+                                <asp:TextBox ID="txtEmail" runat="server" BackColor="#DFECEB" BorderColor="#E6E2E9" BorderStyle="Solid" TabIndex="11" Width="139px" Enabled="False" ValidationGroup="Save"></asp:TextBox>
                                 <asp:ImageButton ID="btnEmail" runat="server" ImageUrl="~/Images/Edit.gif" OnClick="btnEmail_Click" ToolTip="Edit email" />
+                                <asp:CheckBox ID="chkEm" runat="server" Enabled="False" />
                             </td>
                             <td>
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtEmail" CssClass="RequiredFieldValidator" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="Save">Please enter a valid email address</asp:RegularExpressionValidator>
                                 <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" CssClass="RequiredFieldValidator" ValidationGroup="Save">Enter e-mail address</asp:RequiredFieldValidator>
                             </td>
-                            <td></td>
+                            <td>&nbsp;</td>
                             <td class="auto-style1">&nbsp;</td>
                         </tr>
                         <tr>
@@ -206,7 +200,7 @@
                                 <asp:Label ID="lblEmail" runat="server" CssClass="Label" Text="Confirm Email *" Visible="False"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox ID="txtConfirmEmail" runat="server" BackColor="#DFECEB" BorderColor="#E6E2E9" BorderStyle="Solid" TabIndex="12" Width="137px" Visible="False" Enabled="False" ValidationGroup="Save"></asp:TextBox>
+                                <asp:TextBox ID="txtConfirmEmail" runat="server" BackColor="#DFECEB" BorderColor="#E6E2E9" BorderStyle="Solid" TabIndex="12" Width="140px" Visible="False" Enabled="False" ValidationGroup="Save"></asp:TextBox>
                             </td>
                             <td>
                                 <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtEmail" ControlToValidate="txtConfirmEmail" CssClass="RequiredFieldValidator" ValidationGroup="Save">Email ids do not match</asp:CompareValidator>
@@ -219,14 +213,14 @@
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
-                            <td colspan="5">
-                                <asp:Label ID="Label16" runat="server" CssClass="Labeltxt" Text="We promote our families businesses and services.Please enter if you have any service to offer"></asp:Label>
+                            <td colspan="5" class="auto-style2">
+                                <asp:Label ID="Label16" runat="server" CssClass="Label" Text="We promote our families businesses and services.Please enter if you have any service to offer"></asp:Label>
                             </td>
                         </tr>
                     </table>
                 </ContentTemplate>
             </asp:UpdatePanel>
-            <asp:CheckBox ID="chkServices" runat="server" AutoPostBack="True" Text="Click here to enable the options below" />
+            <asp:CheckBox ID="chkServices" runat="server" AutoPostBack="True" Text="Click here to enable the options below" CssClass="Label" OnCheckedChanged="chkServices_CheckedChanged" />
             <asp:UpdatePanel ID="upServices" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
                     <table style="text-align: left">
@@ -252,32 +246,48 @@
                         <tr>
                             <td>
                                 <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine" Width="290px"></asp:TextBox>
-                                <asp:Button ID="btnAdd" runat="server" CssClass="button" Text="Add " />
+                                <asp:Button ID="btnAdd" runat="server" CssClass="button" Text="Add " OnClick="btnAdd_Click" />
                             </td>
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
                             <td>
-                                <asp:GridView ID="grdView" runat="server" AutoGenerateColumns="False" EmptyDataText="No Services" PageSize="5" Width="537px">
+                                <asp:GridView ID="grdView" runat="server" AutoGenerateColumns="False" EmptyDataText="No Services" PageSize="5" Width="537px" DataKeyNames="serviceId" OnRowCancelingEdit="grdView_RowCancelingEdit" OnRowEditing="grdView_RowEditing">
                                     <Columns>
+                                       <%-- <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:HiddenField ID="hdfServiceID" runat="server" Value='<%# Eval("ServiceId") %>' />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>--%>
                                         <asp:TemplateField HeaderText="Service/Business">
                                             <EditItemTemplate>
-                                                <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("Services") %>' ReadOnly="True"></asp:TextBox>
+                                                <asp:TextBox ID="txtService" runat="server" ReadOnly="True" Text='<%# Eval("Services") %>'></asp:TextBox>
                                             </EditItemTemplate>
                                             <ItemTemplate>
-                                                <asp:TextBox ID="txtService" runat="server" Text='<%# Eval("Services") %>' ReadOnly="True"></asp:TextBox>
+                                                <asp:TextBox ID="txtService" runat="server" ReadOnly="True" Text='<%# Eval("Services") %>'></asp:TextBox>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Description">
                                             <EditItemTemplate>
-                                                <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Description") %>' TextMode="MultiLine"></asp:TextBox>
+                                                <asp:TextBox ID="txtGrdDescription" runat="server" Text='<%# Bind("Description") %>' TextMode="MultiLine"></asp:TextBox>
                                             </EditItemTemplate>
                                             <ItemTemplate>
-                                                <asp:TextBox ID="txtGrdDescription" runat="server" Text='<%# Bind("Description") %>' TextMode="MultiLine" Width="318px"></asp:TextBox>
+                                                <asp:TextBox ID="txtGrdDescription" runat="server" ReadOnly="True" Text='<%# Eval("Description") %>' TextMode="MultiLine" Width="318px"></asp:TextBox>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" />
-                                        <asp:CommandField HeaderText="Edit" />
+                                        <asp:TemplateField HeaderText="Edit" ShowHeader="False">
+                                            <EditItemTemplate>
+                                                <asp:ImageButton ID="ImageButton3" runat="server" CausesValidation="False" CommandName="Cancel" Height="16px" ImageUrl="~/Images/Cancel.png" Width="19px" />
+                                            </EditItemTemplate>
+                                            <ItemTemplate>
+                                                <asp:ImageButton ID="ibtnEdit" runat="server" CausesValidation="False" CommandName="Edit" ImageUrl="~/Images/edit1.gif" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Delete" ShowHeader="False">
+                                            <ItemTemplate>
+                                                <asp:ImageButton ID="ibtnDelete" runat="server" ImageUrl="~/Images/Cancel.gif" OnClick="ibtnDelete_Click" style="height: 11px" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
                                     </Columns>
                                     <RowStyle Wrap="False" />
                                 </asp:GridView>

@@ -26,6 +26,7 @@ namespace ProjectSample.PresentationLayer
             if (!IsPostBack)
             {
                 txtPassword.Attributes["type"] = "password";
+                txtConfirmPassword.Attributes["type"] = "password";
                 if (Session["UserName"] != null)
                 {
                     Label lblMasterLabel = (Label)Master.FindControl("lblUser");
@@ -50,7 +51,7 @@ namespace ProjectSample.PresentationLayer
                 Addbind();
             }
         }
-        protected void btnSave_Click(object sender, EventArgs e)
+        protected void imgBtnSave_Click(object sender, ImageClickEventArgs e)
         {
             if (Page.IsValid)
             {
@@ -66,22 +67,59 @@ namespace ProjectSample.PresentationLayer
                 else
                 {
                     blReg._userName = txtUserName.Text.Trim();
-                    blReg._firstName = txtFirstName.Text;
-                    blReg._MI = txtMInitial.Text;
-                    blReg._lastName = txtLastName.Text;
-                    blReg._address = txtAddress.Text;
-                    blReg._city = txtCity.Text;
-                    blReg._state = txtState.Text;
-                    blReg._zipcode = txtZipcode.Text;
-                    blReg._phoneNO = txtPhoneNO.Text;
-                    blReg._alternatePhoneNO = txtAlternatePhone.Text;
-                    blReg._email = txtEmail.Text;
+                    blReg._firstName = txtFirstName.Text.Trim();
+                    if (txtMInitial.Text.Trim() == string.Empty)
+                    {
+                        blReg._MI = null;
+                    }
+                    else
+                    {
+                        blReg._MI = txtMInitial.Text.Trim();
+                    }
+                    blReg._lastName = txtLastName.Text.Trim();
+                    blReg._address = txtAddress.Text.Trim();
+                    blReg._city = txtCity.Text.Trim();
+                    blReg._state = txtState.Text.Trim();
+                    blReg._zipcode = txtZipcode.Text.Trim();
+                    blReg._phoneNO = txtPhoneNO.Text.Trim();
+                    if (txtAlternatePhone.Text.Trim() == string.Empty)
+                    {
+                        blReg._alternatePhoneNO = null;
+                    }
+                    else
+                    {
+                        blReg._alternatePhoneNO = txtAlternatePhone.Text.Trim();
+                    }
+                    blReg._email = txtEmail.Text.Trim();
                     blReg._password = txtPassword.Text;
+                    if (chkPh1.Checked == true)
+                    {
+                        blReg._hidePhone = 1;
+                    }
+                    else
+                    {
+                        blReg._hidePhone = 0;
+                    }
+                    if (chkEmail.Checked == true)
+                    {
+                        blReg._hideEmail = 1;
+                    }
+                    else
+                    {
+                        blReg._hideEmail = 0;
+                    }
                     serviceBusiness();
                     blReg.insertregistrationandServices(1);
 
+                    Session["User"] = "True";
+                    Session["UserName"] = txtUserName.Text.Trim();
                     ClearAll();
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Saved", "alert('Registration Complete!Check profile for any updation.');", true);
+                    upServices.Visible = false;
+                    chkServices.Checked = false;
+
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Saved", "RegistrationAlert();", true);
+
+
                 }
             }
         }
@@ -154,6 +192,7 @@ namespace ProjectSample.PresentationLayer
             txtConfirmEmail.Text = string.Empty;
             txtPassword.Text = string.Empty;
             txtConfirmPassword.Text = string.Empty;
+
 
         }
         public void fillServiceDDL()
@@ -246,6 +285,8 @@ namespace ProjectSample.PresentationLayer
             return returnValue;
         }
     #endregion
+
+      
 
        
     }

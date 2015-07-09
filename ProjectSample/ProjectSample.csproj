@@ -279,6 +279,8 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Images\account.jpg" />
     <Content Include="Images\add.gif" />
+    <Content Include="Images\Cancel.gif" />
+    <Content Include="Images\Cancel.png" />
     <Content Include="Images\Edit.gif" />
     <Content Include="Images\edit1.gif" />
     <Content Include="Images\edit24x24.gif" />
@@ -291,9 +293,11 @@
     <Content Include="Images\logO1.png" />
     <Content Include="Images\Logout.png" />
     <Content Include="Images\save.gif" />
+    <Content Include="Images\search.gif" />
     <Content Include="Images\UserLog.gif" />
     <Content Include="JavaScript\UserNameCheck.js" />
     <Content Include="PresentationLayer\Amenities.aspx" />
+    <Content Include="PresentationLayer\GuestLogin.aspx" />
     <Content Include="PresentationLayer\Home.aspx" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
@@ -316,6 +320,7 @@
     <Content Include="PresentationLayer\LogOut.aspx" />
     <Content Include="PresentationLayer\Profile.aspx" />
     <Content Include="PresentationLayer\Registration.aspx" />
+    <Content Include="PresentationLayer\Services.aspx" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.js" />
@@ -420,6 +425,13 @@
     <Compile Include="PresentationLayer\Amenities.aspx.designer.cs">
       <DependentUpon>Amenities.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PresentationLayer\GuestLogin.aspx.cs">
+      <DependentUpon>GuestLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\GuestLogin.aspx.designer.cs">
+      <DependentUpon>GuestLogin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -461,6 +473,13 @@
     </Compile>
     <Compile Include="PresentationLayer\Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Services.aspx.cs">
+      <DependentUpon>Services.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Services.aspx.designer.cs">
+      <DependentUpon>Services.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

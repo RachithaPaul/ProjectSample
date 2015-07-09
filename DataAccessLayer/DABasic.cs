@@ -15,7 +15,8 @@ namespace DataAccessLayer
         public enum Action
         {
             insert=1,
-            update=2
+            update=2,
+            Delete=3
         };
    
         public SqlConnection getConnection()

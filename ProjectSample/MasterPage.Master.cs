@@ -31,6 +31,11 @@ namespace ProjectSample
             Response.Redirect("LogOut.aspx");
 
         }
+
+        protected void btnGuest_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("GuestLogin.aspx");
+        }
     }
    
 }

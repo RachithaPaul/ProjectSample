@@ -28,7 +28,7 @@
             <td>
                 <asp:ImageButton ID="btnLogin" runat="server" Height="24px" ImageUrl="~/Images/login.png" OnClick="btnLogin_Click" Width="23px" ToolTip="Login" />
            <asp:ImageButton ID="btnLogOut" runat="server" ImageUrl="~/Images/Logout.png" Width="23px" Visible="False" OnClick="btnLogOut_Click" ToolTip="Logout" />
-                <asp:ImageButton ID="btnGuest" runat="server" Height="23px" ImageUrl="~/Images/guest.png" Width="27px" ToolTip="Guest" />
+                <asp:ImageButton ID="btnGuest" runat="server" Height="23px" ImageUrl="~/Images/guest.png" Width="27px" ToolTip="Guest" OnClick="btnGuest_Click" />
                 <br />
       <asp:Label ID="lblUser" runat="server" CssClass="Labeltxt"></asp:Label>
        
@@ -63,20 +63,11 @@
             </li>
                <li><a href="#">Services</a>
                 <ul>
-                    <li><a href="#">Services</a></li>
+                    <li><a href="Services.aspx">Services</a></li>
 
                 </ul>
             </li>
-               <li><a href="#">Guest</a>
-                <ul>
-                    <li><a href="#">Login</a></li>
-
-                </ul>
-            </li>
-           
-            <li>
-                
-            </li>
+              
         </ul>
        
     <div id="MainContent">

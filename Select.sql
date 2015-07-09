@@ -3,7 +3,7 @@ Alter PROC Adm.SelectProfile
 	AS
 	BEGIN
 		SELECT userName,firstName,MI,lastName,address,city,state,
-				zipCode,phoneNo,alternatePhoneNo,email,Password,userId
+				zipCode,phoneNo,alternatePhoneNo,email,HidePhone,HideEmail,userId
 			FROM Adm.Registration
 				WHERE userName=@userName;
 --FOR SERVICE RELOAD
@@ -11,7 +11,8 @@ Alter PROC Adm.SelectProfile
 	SET @UserId=(SELECT userId FROM Adm.Registration WHERE userName=@userName);
 
 	IF EXISTS(SELECT * FROM Adm.ServiceOrBusiness WHERE userId=@UserId)
-		SELECT serBusiness,description FROM Adm.ServiceOrBusiness WHERE userId=@UserId;
+		SELECT serBusiness,description,serviceId FROM Adm.ServiceOrBusiness WHERE userId=@UserId;
 		ELSE
 		SELECT 'False';
 	END
+
