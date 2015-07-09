@@ -11,9 +11,12 @@ ALTER PROCEDURE Adm.procInsertUpdateRegistrationandService
 									@alternatePhoneNo AS NVARCHAR(15)=NULL,
 									@email AS NVARCHAR(100),
 									@password AS NVARCHAR(50),
-									@userId AS INT,
+									@userId AS INT=null,
+									@HidePhone AS BIT,
+									@HideEmail AS BIT,
 					--INSERT TO TABLE Adm.ServiceOrBusiness--
 									@dtServiceOrBusiness AS dtServiceOrBusiness READONLY,
+									@dtServiceOrBusinessUpdate AS dtServiceOrBusinessUpdate READONLY,
 					--ACTION--
 									@Action AS INT=NULL,
 					--ERROR FLAG--
@@ -22,9 +25,9 @@ ALTER PROCEDURE Adm.procInsertUpdateRegistrationandService
 		SET NOCOUNT ON;
 			BEGIN
 				IF(@Action=1)
-					BEGIN
+				BEGIN
+					BEGIN TRY
 						BEGIN TRANSACTION
-																																																			BEGIN TRY
 						INSERT INTO Adm.Registration
 										(userName,
 										firstName,
@@ -37,7 +40,9 @@ ALTER PROCEDURE Adm.procInsertUpdateRegistrationandService
 										phoneNo,
 										alternatePhoneNo,
 										email,
-										Password )
+										Password,
+										HidePhone,
+										HideEmail )
 								VALUES
 										(@userName,
 										@firstName,
@@ -50,7 +55,10 @@ ALTER PROCEDURE Adm.procInsertUpdateRegistrationandService
 										@phoneNo ,
 										@alternatePhoneNo,
 										@email,
-										@password)
+										@password,
+										@HidePhone,
+										@HideEmail
+										)
 --INSERTING TO 	TABLE Adm.ServiceOrBusiness USING THE CURRENT userId FROM TABLE	Adm.Registration	
 							DECLARE @currentUserId AS INT;
 								SET @currentUserId=(SELECT SCOPE_IDENTITY());
@@ -66,10 +74,12 @@ ALTER PROCEDURE Adm.procInsertUpdateRegistrationandService
 														FROM @dtServiceOrBusiness
 							END
 						END TRY
+
 						BEGIN CATCH
 							SET @errorFlag=@@ERROR;
 						END CATCH
-										IF (@errorFlag<>0)
+
+						IF (@errorFlag<>0)
 							BEGIN
 								ROLLBACK TRANSACTION;
 							END
@@ -77,11 +87,10 @@ ALTER PROCEDURE Adm.procInsertUpdateRegistrationandService
 							BEGIN
 								COMMIT TRANSACTION;
 							END
-					END
-			
-				ELSE IF(@Action=2)
-								BEGIN
-									UPDATE Adm.Registration SET userName=@userName,
+				END
+				ELSE IF (@Action=2)
+				BEGIN
+				UPDATE Adm.Registration SET userName=@userName,
 														firstName=@firstName,
 														MI=@MI,
 														lastName=@lastName,
@@ -91,9 +100,34 @@ ALTER PROCEDURE Adm.procInsertUpdateRegistrationandService
 														zipCode=@zipCode,
 														phoneNo=@phoneNo,
 														alternatePhoneNo=@alternatePhoneNo,
-														email=@email--,
+														email=@email,
+														HidePhone=@HidePhone,
+														HideEmail=@HideEmail
 														--Password=@password
 									WHERE userId=@userId
+
+						--Updating Service or Business Table(dELETING AND iNSERTING)---
+						DECLARE @count AS INT;
+						SET @COUNT=(SELECT COUNT(*)FROM @dtServiceOrBusinessUpdate);
+							IF (@COUNT>0)
+								BEGIN
+								--UPDATING TABLE WHERE VALUE FOR SERVICEID IS PRESENT
+								UPDATE SB1 SET 
+												SB1.serBusiness=SB2.serBusiness,
+												SB1.description=SB2.description
+									FROM Adm.ServiceOrBusiness AS SB1 INNER JOIN @dtServiceOrBusinessUpdate AS SB2
+										ON SB1.serviceId=SB2.serviceID WHERE SB1.userId=@userId
+								--INSERTING TABLE  WHERE VALUE FOR SERVICEID IS NULL
+									INSERT INTO Adm.ServiceOrBusiness 
+													(serBusiness,
+													description,
+													userId)
+													SELECT serBusiness,description,(SELECT @userId) 
+														FROM @dtServiceOrBusinessUpdate	where serviceid is null 
+								
 								END
+				END
+				
+				
 			END
 
