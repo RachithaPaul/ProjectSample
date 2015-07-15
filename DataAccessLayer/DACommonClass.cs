@@ -1,49 +1,76 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.OleDb;
 //using Microsoft.
 namespace DataAccessLayer
 {
    public  class DACommonClass:DABasic
     {
-       DABasic basicClass=new DABasic();
-       SqlConnection con=new SqlConnection();
+       DataSet ds = new DataSet();
+
              //Insert datas
 
        public int insertUpdateDelete(string spName, SqlParameter[] sqlParam)
        {
            int returnValue = 0;
-           con = basicClass.getConnection();
-           con.Open();
-           SqlCommand cmd = new SqlCommand(spName,con);
-           cmd.CommandType = CommandType.StoredProcedure;
-           cmd.Parameters.AddRange(sqlParam);
-           returnValue = Convert.ToInt32(cmd.ExecuteNonQuery());
-           return returnValue;
+          
+           try
+           {
+              
+               SqlCommand cmd = new SqlCommand(spName, getConnection());
+               cmd.CommandType = CommandType.StoredProcedure;
+               cmd.Parameters.AddRange(sqlParam);
+               returnValue = Convert.ToInt32(cmd.ExecuteNonQuery());
+               return returnValue;
+           }
+           catch (Exception ex)
+           {
+               throw ex;
+           }
+           finally
+           {
+               if (getConnection().State == ConnectionState.Open)
+               {
+                   getConnection().Close();
+               }
+
+           }
        }
        public string userExists(string spName1, SqlParameter[] sqlParam1)
        {
            string returnvalue = string.Empty;
-           con = basicClass.getConnection();
-           con.Open();
-           SqlCommand cmd = new SqlCommand(spName1, con);
-           cmd.CommandType = CommandType.StoredProcedure;
-       
-           cmd.Parameters.AddRange(sqlParam1);
-           returnvalue = cmd.ExecuteScalar().ToString();
-           return returnvalue;
+           try
+           {
+              
+               SqlCommand cmd = new SqlCommand(spName1, getConnection());
+               cmd.CommandType = CommandType.StoredProcedure;
 
+               cmd.Parameters.AddRange(sqlParam1);
+               returnvalue = cmd.ExecuteScalar().ToString();
+
+               return returnvalue;
+           }
+           catch (Exception ex)
+           {
+               throw ex;
+           }
+           finally
+           {
+               if (getConnection().State == ConnectionState.Open)
+               {
+                   getConnection().Close();
+               }
+           }
        }
        public DataTable getDataForDDL(string spName)
        {
            DataTable dtTable = new DataTable();
-           con = basicClass.getConnection();
-           con.Open();
-           SqlCommand cmd = new SqlCommand(spName,con);
+           SqlCommand cmd = new SqlCommand(spName,getConnection());
            cmd.CommandType = CommandType.StoredProcedure;
            SqlDataAdapter da = new SqlDataAdapter(cmd);
            da.Fill(dtTable);
@@ -52,16 +79,21 @@ namespace DataAccessLayer
        public DataSet selectData(string spName,SqlParameter[] sqlParam)
        {
            DataSet ds = new DataSet();
-           con = basicClass.getConnection();
-           con.Open();
-           SqlCommand cmd = new SqlCommand(spName, con);
+          
+           SqlCommand cmd = new SqlCommand(spName,getConnection());
            cmd.CommandType = CommandType.StoredProcedure;
            cmd.Parameters.AddRange(sqlParam);
            SqlDataAdapter da = new SqlDataAdapter(cmd);
-          // da.SelectCommand = cmd;
            da.Fill(ds);
-           // int i=ds.Tables.Count;
            return ds;
        }
+       public DataSet excelDataset(string strSQLexcel)
+       {
+           OleDbCommand oledbCmd = new OleDbCommand(strSQLexcel,getExcelConnection());
+           OleDbDataAdapter oledbDA = new OleDbDataAdapter(oledbCmd);
+           oledbDA.Fill(ds);
+           return ds;
+       }
+      
     }
 }
